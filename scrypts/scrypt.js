@@ -3,7 +3,9 @@ const myContainer = document.getElementById("container");
 function createPixel() {
 //pour créer un pixel vierge
     let pix = document.createElement("div");
+    
     pix.classList.add("pixel");
+    pix.addEventListener("mouseover", colorie);
     myContainer.appendChild(pix);
 };
 
@@ -15,13 +17,8 @@ function createSketch(max) {
 
 createSketch(256); // on crée un sketch de 16*16= 256 pixels
 
-const items = container.querySelectorAll('.pixel');
-items.forEach(item => item.addEventListener('mouseover', action(e.target)));
 
-function action(){ 
-   this.classList.add("colored")
-};
-
-
-
-
+function colorie(e) {
+    let target = event.target;
+    target.classList.add("colored");
+}
